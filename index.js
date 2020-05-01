@@ -17,7 +17,7 @@ client.on("message", (msg) => {
   const getJoke = async () => {
     const url = "https://icanhazdadjoke.com/";
 
-    let joke = fetch(url, {
+    fetch(url, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -29,8 +29,6 @@ client.on("message", (msg) => {
         msg.reply(data.joke);
       })
       .catch((err) => console.log(err));
-
-    // console.log(joke);
   };
 
   if (msg.content[0] === "!") {
