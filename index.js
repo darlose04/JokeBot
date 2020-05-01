@@ -24,10 +24,13 @@ client.on("message", (msg) => {
       },
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data.joke);
+        msg.reply(data.joke);
+      })
       .catch((err) => console.log(err));
 
-    console.log(joke);
+    // console.log(joke);
   };
 
   if (msg.content[0] === "!") {
