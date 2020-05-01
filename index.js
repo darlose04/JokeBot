@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const axios = require("axios");
 require("dotenv").config();
 const fetch = require("node-fetch");
 
@@ -18,16 +17,10 @@ client.on("message", (msg) => {
   const getJoke = async () => {
     const url = "https://icanhazdadjoke.com/";
 
-    // let joke = await axios.get(url, {
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // });
-
     let joke = fetch(url, {
       method: "GET",
       headers: {
-        "COntent-Type": "application/json",
+        Accept: "application/json",
       },
     })
       .then((res) => res.json())
