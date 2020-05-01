@@ -10,8 +10,20 @@ client.on("ready", () => {
 });
 
 client.on("message", (msg) => {
-  if (msg.content === "ping") {
-    msg.reply("pong");
+  // if (msg.content === "ping") {
+  //   msg.reply("pong");
+  // }
+
+  const getJoke = async () => {
+    const url = "https://icanhazdadjoke.com/";
+
+    let joke = await axios.get(url);
+
+    console.log(joke);
+  };
+
+  if (msg.content[0] === "!") {
+    getJoke();
   }
 });
 
